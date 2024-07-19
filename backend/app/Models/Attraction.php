@@ -27,4 +27,19 @@ class Attraction extends Model
     {
         return $this->belongsTo(Settlement::class, 's_id', 's_id');
     }
+
+    public function translations()
+    {
+        return $this->hasMany(AttractionTransition::class, 'attraction_id', 'attraction_id');
+    }
+
+    public function tags()
+    {
+        return $this->hasMany(AttractionTag::class, 'attraction_id', 'attraction_id');
+    }
+
+    public function images()
+    {
+        return $this->hasMany(Image::class, 'attraction_id', 'attraction_id');
+    }
 }

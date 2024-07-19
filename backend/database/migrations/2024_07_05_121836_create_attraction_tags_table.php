@@ -14,12 +14,33 @@ return new class extends Migration
         Schema::create('attraction_tags', function (Blueprint $table) {
             $table->id('at_id');
             $table->unsignedBigInteger('attraction_id');
-            $table->unsignedBigInteger('tag_id');
+            $table->unsignedInteger('TT_id');
             $table->timestamps();
 
             $table->foreign('attraction_id')->references('attraction_id')->on('attractions')->onDelete('cascade');
-            $table->foreign('tag_id')->references('tag_id')->on('tags')->onDelete('cascade');
+            $table->foreign('TT_id')->references('TT_id')->on('tag_transitions')->onDelete('cascade');
         });
+        DB::table('attraction_tags')->insert([
+            // Makarska attractions (attraction_id: 1, 2, 3)
+            ['attraction_id' => 1, 'TT_id' => 3], // Beachfront
+            ['attraction_id' => 1, 'TT_id' => 5], // Nature
+            ['attraction_id' => 2, 'TT_id' => 8], // Romantic
+            ['attraction_id' => 3, 'TT_id' => 7], // Adventure
+
+            // Budapest attractions (attraction_id: 4, 5)
+            ['attraction_id' => 4, 'TT_id' => 1], // Family Friendly
+            ['attraction_id' => 4, 'TT_id' => 4], // Historical
+            ['attraction_id' => 5, 'TT_id' => 9], // Cultural
+
+            // Trogir attractions (attraction_id: 6, 7, 8)
+            ['attraction_id' => 6, 'TT_id' => 3], // Beachfront
+            ['attraction_id' => 7, 'TT_id' => 4], // Historical
+            ['attraction_id' => 8, 'TT_id' => 7], // Adventure
+
+            // Esztergom attractions (attraction_id: 9)
+            ['attraction_id' => 9, 'TT_id' => 4], // Historical
+            ['attraction_id' => 9, 'TT_id' => 9], // Cultural
+        ]);
     }
 
     /**

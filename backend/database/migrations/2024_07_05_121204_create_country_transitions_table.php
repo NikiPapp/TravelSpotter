@@ -21,6 +21,12 @@ return new class extends Migration
             $table->foreign('iso_id')->references('iso_id')->on('countries')->onDelete('cascade');
             $table->foreign('lang_id')->references('lang_id')->on('languages')->onDelete('cascade');
         });
+        DB::table('country_transitions')->insert([
+            ['CT_id' => 1, 'iso_id' => 'HU', 'lang_id' => 1, 'c_name' => 'Hungary'],
+            ['CT_id' => 2, 'iso_id' => 'HU', 'lang_id' => 2, 'c_name' => 'Magyarország'],
+            ['CT_id' => 3, 'iso_id' => 'HR', 'lang_id' => 1, 'c_name' => 'Croatia'],
+            ['CT_id' => 4, 'iso_id' => 'HR', 'lang_id' => 2, 'c_name' => 'Horvátország'],
+        ]);
     }
 
     /**

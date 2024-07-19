@@ -16,13 +16,13 @@ class SettlementTag extends Model
 
     protected $fillable = [
         's_id',
-        'tag_id',
+        'TT_id',
     ];
 
     protected $casts = [
         'st_id' => 'integer',
         's_id' => 'integer',
-        'tag_id' => 'integer',
+        'TT_id' => 'integer',
     ];
 
     public function settlement()
@@ -32,6 +32,6 @@ class SettlementTag extends Model
 
     public function tag()
     {
-        return $this->belongsTo(Tags::class, 'tag_id', 'tag_id');
+        return $this->belongsTo(TagTransitions::class, 'TT_id', 'TT_id');
     }
 }

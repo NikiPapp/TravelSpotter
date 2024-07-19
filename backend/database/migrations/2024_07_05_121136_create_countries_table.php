@@ -16,6 +16,10 @@ return new class extends Migration
             $table->string('def_name', 100);
             $table->timestamps();
         });
+        DB::table('countries')->insert([
+            ['iso_id' => 'HU', 'def_name' => 'Hungary'],
+            ['iso_id' => 'HR', 'def_name' => 'Croatia'],
+        ]);
     }
 
     /**

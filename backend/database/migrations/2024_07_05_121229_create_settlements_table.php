@@ -18,6 +18,13 @@ return new class extends Migration
 
             $table->foreign('iso_id')->references('iso_id')->on('countries')->onDelete('cascade');
         });
+        DB::table('settlements')->insert([
+            ['s_id' => 1, 'iso_id' => 'HU'],
+            ['s_id' => 2, 'iso_id' => 'HR'],
+            ['s_id' => 3, 'iso_id' => 'HR'],
+            ['s_id' => 4, 'iso_id' => 'HU'],
+
+        ]);
     }
 
     /**

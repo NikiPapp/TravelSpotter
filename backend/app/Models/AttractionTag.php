@@ -17,13 +17,13 @@ class AttractionTag extends Model
 
     protected $fillable = [
         'attraction_id',
-        'tag_id',
+        'TT_id',
     ];
 
     protected $casts = [
         'at_id' => 'integer',
         'attraction_id' => 'integer',
-        'tag_id' => 'integer',
+        'TT_id' => 'integer',
     ];
 
     public function attraction()
@@ -33,6 +33,6 @@ class AttractionTag extends Model
 
     public function tag()
     {
-        return $this->belongsTo(Tags::class, 'tag_id', 'tag_id');
+        return $this->belongsTo(TagsTransitions::class, 'TT_id', 'TT_id');
     }
 }

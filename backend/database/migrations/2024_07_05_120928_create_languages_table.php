@@ -17,6 +17,10 @@ return new class extends Migration
             $table->string('lang_name', 50);
             $table->timestamps();
         });
+        DB::table('languages')->insert([
+            ['lang_id' => 1, 'code' => 'en', 'lang_name' => 'English'],
+            ['lang_id' => 2, 'code' => 'hu', 'lang_name' => 'Hungarian'],
+        ]);
     }
 
     /**
