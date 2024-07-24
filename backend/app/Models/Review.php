@@ -20,6 +20,7 @@ class Review extends Model
         'user_name',
         'review_text',
         'review_date',
+        'nbOfStars'
     ];
 
     protected $casts = [
@@ -29,6 +30,7 @@ class Review extends Model
         'user_name' => 'string',
         'review_text' => 'string',
         'review_date' => 'datetime',
+        'nbOfStars' => 'integer'
     ];
 
     public function settlement()
