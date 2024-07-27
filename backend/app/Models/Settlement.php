@@ -38,13 +38,13 @@ class Settlement extends Model
         return $this->hasMany(Attraction::class, 's_id', 's_id');
     }
 
-    public function tags()
-    {
-        return $this->hasMany(SettlementTag::class, 's_id', 's_id');
-    }
 
     public function images()
     {
         return $this->hasMany(Image::class, 's_id', 's_id');
+    }
+    public function tags()
+    {
+        return $this->belongsToMany(TagTransition::class, 'settlement_tags', 's_id', 'TT_id');
     }
 }

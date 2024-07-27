@@ -35,7 +35,7 @@ class Attraction extends Model
 
     public function tags()
     {
-        return $this->hasMany(AttractionTag::class, 'attraction_id', 'attraction_id');
+        return $this->belongsToMany(TagTransition::class, 'attraction_tags', 'attraction_id', 'TT_id');
     }
 
     public function images()

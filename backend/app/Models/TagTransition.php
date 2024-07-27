@@ -16,4 +16,13 @@ class TagTransition extends Model
         'tag_name',
         
     ];
+    public function settlements()
+    {
+        return $this->belongsToMany(Settlement::class, 'settlement_tags', 'TT_id', 's_id');
+    }
+
+    public function attractions()
+    {
+        return $this->belongsToMany(Attraction::class, 'attraction_tags', 'TT_id', 'attraction_id');
+    }
 }
